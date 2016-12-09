@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/templateforPdf.css" />
+    <title>No Dues Receipt  </title>
+</head>
+<body>
+
+<table border="0" width="100%" align="center">
+
+    <thead>
+
+    <th>
+    Name = {{ a.student.name }}
+    </th>
+<th>
+   Department = {{ a.student.dept }}
+
+</th>
+    <th>
+    Roll number = {{ a.student.rollNo }}
+</th>
+    </thead>
+</table>
+
+<table cellspacing='0' align="center" width="100%">
+	<thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Approved</th>
+        <th>Designation</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for key,value in a.items %}
+
+        {%  ifnotequal key  "student" %}
+            <tr>
+                <td>
+                    {{ value.name }}
+                </td>
+                <td>
+                    {{ value.type }}
+                </td>
+                <td>
+                    {{ value.approved }}
+                </td>
+                <td>
+                    {{ value.designation }}
+                </td>
+
+            </tr>
+
+    {% endifnotequal %}
+
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<form>
+         <input type="button" value="Print" onclick="window.print()" />
+      </form>
+</body>
+
+</body>
+</html>
